@@ -1,0 +1,629 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+<title>First Page Render</title>
+<link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Lobster&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+<link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="lib/lightbox/css/lightbox.css" rel="stylesheet">
+<style type="text/css" rel="slylesheet">
+html, body {
+    width: auto !important;
+    overflow-x: hidden !important;
+}
+body{
+    font-family: "helvetica neue";
+    background-image: url('img/back.jpg');
+}
+
+/*Навигационное меню*/
+.navbar-brand
+{
+    position: absolute;
+    width: 100%;
+    top:0;
+    left:0;
+    text-align: center;
+    margin: auto;
+    z-index: 1;
+}
+ul.nav{
+    font-family: "helvetica neue";
+    font-size: 11px;
+    color: white;
+    text-transform: uppercase;
+}
+ul.nav a:hover{color:limegreen !important; }
+.navbar-brand{
+    margin-top: -15px;
+}
+.circle .grad{
+    background: -webkit-radial-gradient(50% 40px, circle closest-corner, rgba(255,255,255,0.3), rgba(255,255,255,0) 80px);
+    background: -o-radial-gradient(50% 40px, circle closest-corner, rgba(255,255,255,0.3), rgba(255,255,255,0) 80px);
+    background: -moz-radial-gradient(50% 40px, circle closest-corner, rgba(255,255,255,0.3), rgba(255,255,255,0) 80px);
+    background: radial-gradient(at 50% 40px, circle closest-corner, rgba(255,255,255,0.3), rgba(255,255,255,0) 80px);
+}
+.gradientMenu{
+    background: -webkit-radial-gradient(center top, ellipse farthest-side, rgba(92,94,94,0.23), rgba(92,94,94,0.02));
+    background: -o-radial-gradient(center top, ellipse farthest-side, rgba(92,94,94,0.23), rgba(92,94,94,0.02));
+    background: -moz-radial-gradient(center top, ellipse farthest-side, rgba(92,94,94,0.23), rgba(92,94,94,0.02));
+    background: radial-gradient(center top, ellipse farthest-side, rgba(92,94,94,0.23), rgba(92,94,94,0.02));
+}
+.navbar-inverse .navbar-nav>li>a{
+    color: white;
+}
+.navbar .row{
+    height: 70px;
+}
+/*Языки*/
+.backCircle:hover{
+    background-color: rgba(149, 193, 31, 1);
+}
+.backCircle a{
+    color: #000000;
+    text-decoration: none;
+    font-family: "helvetica neue";
+    font-size: 90%;
+}
+.backCircle a:hover{
+    color: white;
+    cursor:pointer;
+}
+
+
+
+
+
+
+
+
+
+/*Приветствие после слайдера*/
+#afterSlider{
+    background-color: rgba(29,29,27,0.1);
+}
+#circles{
+    text-align: center;
+}
+#circles img{
+    padding-top: 20px;
+    width:30px;
+}
+.greatings h3:first-child{
+    color: rgba(149, 193, 31, 1);
+}
+.greatings{
+    text-align: center;
+    font-family: "Helvetica Neue Light";
+}
+.gradHor{
+    background: -webkit-radial-gradient(center bottom, ellipse farthest-side, rgba(188,188,188,0.23), rgba(188,188,188,0.02));
+    background: -o-radial-gradient(center bottom, ellipse farthest-side, rgba(188,188,188,0.23), rgba(188,188,188,0.02));
+    background: -moz-radial-gradient(center bottom, ellipse farthest-side, rgba(188,188,188,0.23), rgba(188,188,188,0.02));
+    background: radial-gradient(center bottom, ellipse farthest-side, rgba(188,188,188,0.23), rgba(188,188,188,0.02));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Зеленые кружки после статей*/
+.greenDots{
+    text-align: center;
+}
+.greenDots img{
+    width:30px;
+}
+
+
+
+
+
+
+
+/*Наше меню*/
+.ourMenu{
+    text-align: center;
+    font-family: 'helvetica neue light';
+}
+.ourMenu #rightLine{
+    background-color: #000000;
+}
+.ourMenu #leftLine{
+    background-color: #000000;
+}
+.ourMenu h3{
+    margin-top:0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*Разрешение монитора > 768px*/
+@media (min-width: 768px) {
+    /*Навигация*/
+    .circle{
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background-color: rgba(29,29,27,1);
+        border-color: rgba(29,29,27,0);
+        display: inline-block;
+        margin-top: -40px;
+    }
+    .circle img{
+        width: 110px;
+        height: 90px;
+        margin-top: 90px;
+    }
+    ul.nav li a{
+        margin-top: 10px;
+    }
+    .navbar-right ul{
+        position: absolute;
+        right: 7%;
+    }
+    .navbar-left ul{
+        position: absolute;
+        left: 7%;
+    }
+    /*Приветствие после слайдера*/
+    #leftLine{
+        display:inline-block;
+        height:1px;
+        width:20%;
+        background-color: white;
+        margin-right:200px;
+        margin-bottom: 20px;
+    }
+    #rightLine{
+        display:inline-block;
+        height:1px;
+        width:20%;
+        background-color: white;
+        margin-left:200px;
+        margin-bottom: 20px;
+    }
+    #afterSlider{
+        height: 150px;
+    }
+    .greatings h4{
+        color: white;
+        margin-top: -20px;
+    }
+}
+
+
+
+
+
+/*Между 768px u 992px*/
+@media (min-width: 768px) and (max-width: 992px ) {
+}
+
+
+
+
+
+
+
+
+/*Разрешение монитора > 992px*/
+@media (min-width: 992px){
+    /*Навигация*/
+    .navbar-right ul{
+        position: absolute;
+        right: 10%;
+    }
+    .navbar-right li{
+        margin-left: 35px;
+    }
+    .navbar-left ul{
+        position: absolute;
+        left: 10%;
+    }
+    .navbar-left li{
+        margin-right: 35px;
+    }
+    /*Языки*/
+    .languages{
+        position: absolute;
+        top:25px;
+        right: 10px;
+    }
+    .backCircle{
+        text-align: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: white;
+        color: white;
+        float: left;
+        margin-left: 5px;
+    }
+}
+
+
+/*Разрешение монитора < 992px*/
+@media (max-width: 992px) {
+    /*Языки*/
+    .languages{
+        position: absolute;
+        top:5px;
+        right: 10px;
+    }
+    .backCircle{
+        text-align: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: white;
+        color: white;
+        clear: left;
+    }
+}
+
+
+
+
+/*Между 992px u 1200px*/
+@media(min-width: 992px) and (max-width: 1200px){
+}
+
+
+
+
+
+/*Разрешение монитора > 1200px*/
+@media (min-width:1200px){
+}
+
+
+/*Разрешение монитора < 1200px*/
+@media (max-width: 1200px){
+}
+
+
+
+
+
+/*Разрешение монитора < 768px*/
+@media (max-width: 768px){
+    /*Навигация*/
+    .circle{
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background-color: rgba(29,29,27,1);
+        border-color: rgba(29,29,27,0);
+        display: inline-block;
+        margin-top: -40px;
+    }
+    .circle img{
+        width: 90px;
+        height: 70px;
+        margin-top: 55px;
+    }
+    .navbar-collapse .navbar-left{
+        margin-top:90px;
+    }
+    #navbar-collapse-2{
+        margin-top: -10px;
+    }
+    .navbar-toggle{
+        position: absolute;
+        left: 30px;
+        top: 10px;
+        z-index: 2;
+    }
+    .navbar-collapse {
+        background-color:  rgb(29,29,27);
+        text-align: center;
+    }
+    /*Языки*/
+    .languages{
+        position: absolute;
+        top:25px;
+        right: 10px;
+    }
+    .backCircle{
+        text-align: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: white;
+        color: white;
+        float: right;
+        margin-left: 5px;
+    }
+    /*Приветствие после слайдера*/
+    #afterSlider{
+        height: 120px;
+        margin-top: -20px;
+    }
+    .greatings h4{
+        color: white;
+        margin-top: -5px;
+    }
+    /*Статьи*/
+    .thumbnail img{
+        width: 35%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+<script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="lib/lightbox/js/lightbox.min.js"></script>
+<script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="lib/angular/angular.js"></script>
+<script type="text/javascript" src="lib/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="lib/angular-resource/angular-resource.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/controller.js"></script>
+</head>
+<body>
+
+
+
+<!--Навигация-->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1,#navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="navbar-brand" href="#">
+                <div class="circle">
+                    <div class="grad">
+                        <img src="img/logo.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-nav navbar-left" id="navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="#">Меню</a></li>
+                    <li><a href="#">События</a></li>
+                    <li><a href="#">Акции</a></li>
+                </ul>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-nav navbar-right" id="navbar-collapse-2">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Пивоварня</a></li>
+                    <li><a href="#">Время приготовления заказа</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+            <!--Смена языков-->
+            <div class="languages">
+                <div class="backCircle">
+                    <a>ru</a>
+                </div>
+                <div class="backCircle">
+                    <a>en</a>
+                </div>
+                <div class="backCircle">
+                    <a>kz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+
+<!--Приветствие после слайдера-->
+<div id="afterSlider" class="gradHor">
+    <div class="row">
+        <div id="circles">
+            <img src="img/circle.png">
+        </div>
+    </div>
+    <div class="greatings">
+        <h3>ДОБРО ПОЖАЛОВАТЬ</h3>
+        <div class="lines">
+            <div id="leftLine">
+            </div>
+            <div id="rightLine">
+            </div>
+        </div>
+        <h4>В ЛУЧШИЙ ИРЛАНДСКИЙ ПАБ ГОРОДА</h4>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!--Кружки после статей(зеленые)-->
+<div class="greenDots">
+    <img src="img/greenDots.png">
+</div>
+
+
+
+
+
+
+
+<!--Наше меню-->
+<div class="ourMenu">
+    <h3>Наше Меню</h3>
+</div>
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+
+
+
+    $(document).ready(function(){
+
+
+
+
+
+
+
+
+
+        var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
+        var is_safari = navigator.userAgent.indexOf("Safari") > -1;
+        if(is_chrome===false && is_safari===true){
+            equalHeight($('.thumbnail'),70);
+        }else{
+            equalHeight($('.thumbnail'),-10);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        $('.collapse li').mouseover(function(){
+            $(this).addClass('gradientMenu');
+        });
+        $('.collapse li').mouseout(function(){
+            $(this).removeClass('gradientMenu');
+        });
+
+
+
+    });
+
+
+
+
+    function equalHeight(el,plus) {
+        var tallest = 0;
+        el.each(function() {
+            var thisHeight = $(this).height();
+            if(thisHeight > tallest) {
+                tallest = thisHeight+plus;
+            }
+        });
+        el.each(function() { $(this).height(tallest); });
+    }
+
+
+
+
+
+
+
+
+    var rtime = new Date(1, 1, 2000, 12,00,00);
+    var hg = 0;
+    var timeout = false;
+    var delta = 200;
+    $(window).resize(function() {
+        $('.thumbnail').each(function(){
+            $(this).height('auto');
+        });
+        rtime = new Date();
+        if (timeout === false) {
+            timeout = true;
+            setTimeout(resizeend, delta);
+        }
+    });
+
+    function resizeend() {
+        if (new Date() - rtime < delta) {
+            setTimeout(resizeend, delta);
+        } else {
+            timeout = false;
+            var thumb = $('.thumbnail');
+            hg = Math.max($(thumb).height());
+            $('.thumbnail').each(function(){
+                $(this).height(hg);
+            });
+        }
+    }
+
+</script>
+</body>
+</html>

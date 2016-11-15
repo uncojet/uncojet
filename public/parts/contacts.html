@@ -1,0 +1,147 @@
+<div class="content" xmlns="http://www.w3.org/1999/html">
+
+
+    <!-- Carousel
+================================================== -->
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="5"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img width="100%" src="http://www.videojet.com/content/dam/img/website-images/wb-7510-us.jpg" alt="opa1">
+                <div class="carousel-caption">
+                    <h3>Новый 50Вт волоконный лазер</h3>
+                    <button type="button" class="btn btn-sm btn-primary" href="getSome">Читать подробнее...</button>
+                </div>
+            </div>
+            <div class="item">
+                <img width="100%" src="http://www.videojet.com/content/dam/img/Hero%201060/8610-hero-1060x390-.jpg" alt="opa2">
+                <div class="carousel-caption">
+                    <h3>Инновационная система термоструйной маркировки… простота и универсальность</h3>
+                    <button type="button" class="btn btn-sm btn-primary" href="getSome">Читать подробнее...</button>
+                </div>
+            </div>
+            <div class="item">
+                <img width="100%" src="http://www.videojet.com/content/dam/img/Hero%201060/CLARiSUITE%20Web%20banner%201060x390.jpg" alt="opa2">
+                <div class="carousel-caption">
+                    <h3>Уверенность в правильности маркировки. Для любого продукта</h3>
+                    <button type="button" class="btn btn-sm btn-primary" href="getSome">Читать подробнее...</button>
+                </div>
+            </div>
+            <div class="item">
+                <img width="100%" src="http://www.videojet.com/content/dam/img/Hero%201060/BALDR%20web%20banner%20-%20background%20-%201060x390.jpg" alt="opa2">
+                <div class="carousel-caption">
+                    <h3>Маркируйте качественнее благодаря новым лазерным системам Videojet</h3>
+                    <button type="button" class="btn btn-sm btn-primary" href="getSome">Читать подробнее...</button>
+                </div>
+            </div>
+            <div class="item">
+                <img width="100%" src="http://www.videojet.com/content/dam/img/Hero%201060/1620uhs-VJT_158.png" alt="opa2">
+                <div class="carousel-caption">
+                    <h3>Новые сверхскоростные принтеры</h3>
+                    <button type="button" class="btn btn-sm btn-primary" href="getSome">Читать подробнее...</button>
+                </div>
+            </div>
+            <div class="item">
+                <img width="100%" src="http://www.videojet.com/content/dam/img/Hero%201060/1550-1650-codeassurance-brochure.png" alt="opa2">
+                <div class="carousel-caption">
+                    <h3>Печатающая головка CleanFlow™ работает дольше</h3>
+                    <button type="button" class="btn btn-sm btn-primary" href="getSome">Читать подробнее...</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <button type="button" class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </button>
+        <button type="button" class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </button>
+    </div>
+    <!-- /.carousel -->
+
+
+    <form class="search-sm visible-sm visible-xs" method="get" action="">
+        <input type="text" class="form-control" placeholder="Поиск" name="s">
+    </form>
+
+
+
+
+
+
+
+
+    <div class="mapThumb col-sm-10 col-sm-offset-1 thumbnail">
+            <google-map center="map.center" zoom="map.zoom"><marker coords='[76.851154,43.249761]'
+
+                options = "{ icon:'http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png' }">
+            </marker></google-map>
+    </div>
+
+
+
+
+<!-- Call to Action -->
+<div class="call-to-action">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="text-center">
+                    <h3 class="headerTitle">Обратная связь:</h3>
+                </div>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="nameInput" class="control-label col-md-3">Ваше имя:</label>
+                        <div class="col-md-8">
+                            <input type="text" name="nameInput" ng-model="name" placeholder="Пусто" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="emailInput" class="control-label col-md-3">Ваш email:</label>
+                        <div class="col-md-8">
+                            <input type="email" name="emailInput" ng-model="emailFrom" placeholder="Пусто" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="themeInput" class="control-label col-md-3">Тема сообщения:</label>
+                        <div class="col-md-8">
+                            <select name="themeInput" ng-model="theme" class="form-control">
+                                <option value="Отвлеченная" class="form-control">Отвлеченная</option>
+                                <option value="Ценовая_политика" class="form-control">Ценовая политика</option>
+                                <option value="Пивоварня" class="form-control">Пивоварня</option>
+                                <option value="Рабочие_места" class="form-control">Рабочие места</option>
+                                <option value="Запрос_на_выполнение" class="form-control">Запрос на выполнение заказа</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bodyInput" class="control-label col-md-3">Ваше сообщение:</label>
+                        <div class="col-md-8">
+                            <textarea name="bodyInput" ng-model="body" placeholder="Пусто" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10 col-md-offset-3">
+                            <a ng-click="submitIt();name='';emailFrom='';theme='';body='';" class="btn btn-success">Отправить</a>
+                        </div>
+                    </div>
+                </form>
+                <h3>{{result}}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Call to Action -->
+
+</div>

@@ -1,0 +1,26 @@
+<div class="assist_page">
+    <div class="assist_msg">
+        <ul id="messages" data-ng-repeat="item in info">
+            <li><a ng-click="reactClick(item.user)" ng-show="item.user!='Спасибо за помощь!'">{{item.user}}</a> <span ng-show="item.toUser">: {{item.toUser}}</span> : {{item.msg}}</li>
+        </ul>
+    </div>
+В данный момент вы пишите сообщение для: <span>{{result}}</span><span ng-hide="result">Всех!</span>
+    <div class="container">
+        <div class="row text-center">
+            <form class="form-inline" ng-submit="submitMsg();msg=''">
+                <div class="form-group col-sm-8">
+                    <div class="col-sm-12">
+                        <input id="msg" type="text" name="msg" ng-model="msg" placeholder="Ваше сообщение" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group float-right col-sm-4">
+                    <div class="col-sm-12">
+                        <input class="btn btn-info" type="submit"/>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <audio id="audiotag1" src="sound/heloo.wav" preload="auto"></audio>
+</div>

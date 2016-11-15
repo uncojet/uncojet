@@ -1,0 +1,36 @@
+<div ng-show="width>992 && activePhotoEquipments.length==4" class="col-sm-6 col-md-3 col-xs-12">
+    <a ng-href="/itemEquipment{{photo.title}}"><h5 class="text-center">{{photo.title}}</h5></a>
+    <a ng-href="/uploaded/{{photo.photo}}" data-lightbox="secondSlider">
+        <img ng-src="/uploaded/mini_{{photo.photo}}" class="img-responsive center-block img-polaroid img-thumbnail">
+    </a>
+</div>
+<div ng-show="width>992 && activePhotoEquipments.length==3" class="col-sm-6 col-md-4 col-xs-12">
+    <a ng-href="/itemEquipment{{photo.title}}"><h5 class="text-center">{{photo.title}}</h5></a>
+    <a ng-href="/uploaded/{{photo.photo}}" data-lightbox="secondSlider">
+        <img ng-src="/uploaded/mini_{{photo.photo}}" class="img-responsive center-block img-polaroid img-thumbnail">
+    </a>
+</div>
+<div ng-show="width>992 && activePhotoEquipments.length==2" class="col-sm-6 col-md-6 col-xs-12">
+    <a ng-href="/itemEquipment{{photo.title}}"><h5 class="text-center">{{photo.title}}</h5></a>
+    <a ng-href="/uploaded/{{photo.photo}}" data-lightbox="secondSlider">
+        <img ng-src="/uploaded/mini_{{photo.photo}}" class="img-responsive center-block img-polaroid img-thumbnail">
+    </a>
+</div>
+<div ng-show="width>992 && activePhotoEquipments.length==1" class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-xs-12">
+    <a ng-href="/itemEquipment{{photo.title}}"><h5 class="text-center">{{photo.title}}</h5></a>
+    <a ng-href="/uploaded/{{photo.photo}}" data-lightbox="secondSlider">
+        <img ng-src="/uploaded/mini_{{photo.photo}}" class="img-responsive center-block img-polaroid img-thumbnail">
+    </a>
+</div>
+<div ng-show="width<992 && activePhotoEquipments.length==2" class="col-sm-6 col-xs-12">
+    <a ng-href="/itemEquipment{{photo.title}}"><h5 class="text-center">{{photo.title}}</h5></a>
+    <a ng-href="/uploaded/{{photo.photo}}" data-lightbox="secondSlider">
+        <img ng-src="/uploaded/mini_{{photo.photo}}" class="img-responsive center-block img-polaroid img-thumbnail">
+    </a>
+</div>
+<div ng-show="width<992 && activePhotoEquipments.length==1" class="col-sm-6 col-sm-offset-3 col-xs-12">
+    <a ng-href="/itemEquipment{{photo.title}}"><h5 class="text-center">{{photo.title}}</h5></a>
+    <a ng-href="/uploaded/{{photo.photo}}" data-lightbox="secondSlider">
+        <img ng-src="/uploaded/mini_{{photo.photo}}" class="img-responsive center-block img-polaroid img-thumbnail">
+    </a>
+</div>

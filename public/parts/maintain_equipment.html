@@ -1,0 +1,163 @@
+<div class="maintainDish">
+
+    <div class="container">
+        <div class="row" style="text-align: center">
+
+            <h3>Назавние блюда: {{dishTitle}}</h3>
+            <h3>Время приготовления: {{dishTime}} мин.</h3>
+            <p>Описание для клиентов: {{dishAbout}}</p>
+            <p>Brief описание: {{dishBrief}}</p>
+            <p>Цена: {{dishPrice}}</p>
+            <p>Вес: {{dishWeight}}</p>
+            <p>Order: {{dishOrder}}</p>
+            <h4>Фотографии блюда для клиентов: </h4>
+            <div class="picsFromDB" ng-repeat="pic in dishPhoto">
+                <img src="/uploaded/{{pic}}">
+                <a ng-click="deletePic(pic)" class="btn btn-danger btn-xs">Удалить</a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <form class="form-horizontal" role="form" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="aboutDish" class="col-sm-2 control-label">Описание</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" id="aboutDish" placeholder="Описание" ng-model="about"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="briefDish" class="col-sm-2 control-label">Описание</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" id="briefDish" placeholder="Описание" ng-model="brief"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputTime" class="col-sm-2 control-label">Время на приготовение</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputTime" placeholder="Время на приготовление" ng-model="time">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPrice" class="col-sm-2 control-label">Стоимость(тенге)</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputPrice" placeholder="Стоимость блюда" ng-model="price">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputWeight" class="col-sm-2 control-label">Вес(гр)</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputWeight" placeholder="Вес блюда" ng-model="weight">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputOrder" class="col-sm-2 control-label">Order</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputOrder" placeholder="Order" ng-model="order">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="inputFile">Вставить фото
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <a class="btn btn-success ifOutOfFile" ng-click="postDataOutOfFile()">Записать данные</a>
+            </div>
+        </div>
+        <div class="form-group checkForInput">
+            <label for="inputPhoto" class="col-sm-2 control-label">Фотография</label>
+            <div class="col-sm-10">
+                <input type="file" ng-file-select class="form-control" id="inputPhoto" multiple/>
+            </div>
+        </div>
+    </form>
+
+
+
+
+
+
+
+    <div style="margin-bottom: 40px" class="container uploadingPic checkForInput">
+        <h2>Воспринимаемые форматы: jpg,png,jpeg,bmp,gif</h2>
+        <h3>Список очереди на загрузку</h3>
+        <p>Колличество файлов в задаче: {{ uploader.queue.length }}</p>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th width="50%">Название</th>
+                <th ng-show="uploader.isHTML5">Вес файла</th>
+                <th ng-show="uploader.isHTML5">Загружено процентов</th>
+                <th>Статус</th>
+                <th>Действия</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in uploader.queue">
+                <td>
+                    <strong>{{ item.file.name }}</strong>
+                    <div ng-show="uploader.isHTML5" ng-thumb="{ file: item.file, height: 100 }"></div>
+                </td>
+                <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                <td ng-show="uploader.isHTML5">
+                    <div class="progress" style="margin-bottom: 0;">
+                        <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                    <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                    <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                </td>
+                <td nowrap>
+                    <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                        <span class="glyphicon glyphicon-trash"></span> Удалить
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div>
+            <p>
+                Степень загрузки файлов:
+            <div class="progress" style="">
+                <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+            </div>
+            </p>
+            <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+                <span class="glyphicon glyphicon-upload"></span> Загрузить данные
+            </button>
+            <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue();title='';about='';time=''" ng-disabled="!uploader.queue.length">
+                <span class="glyphicon glyphicon-trash"></span> Удалить все
+            </button>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.checkForInput').css('display','none');
+
+        $('#inputFile').click(function(){
+            $('.checkForInput').fadeToggle();
+            $('.ifOutOfFile').fadeToggle();
+        });
+    });
+</script>

@@ -1,0 +1,24 @@
+<label for="inputArea" class="col-sm-2 control-label">Файлы</label>
+<div class="col-sm-10">
+    <input type="file" ng-file-select="onFileSelect($files)" class="form-control" id="inputPhoto" multiple/>
+</div>
+
+<div class="float-left" data-ng-repeat="file in files">
+    <img ng-show="fileType=='photos'" src="uploaded/{{file.name}}" width="250px">
+    <a ng-show="fileType=='docs'" target="_blank" href="uploaded/{{file.name}}">{{file.name}}</a>
+    <br>
+    <div class="text-center">
+        <button ng-click="deleteEquipmentFile(file.name)" type="button" class="btn btn-warning btn-sm">Удалить</button>
+    </div>
+</div>
+
+<div class="row clear-both text-center">
+    <h3>Степень загрузки файлов</h3>
+</div>
+<div class="row">
+    <div class="progress col-sm-6 col-sm-offset-3">
+        <div class="progress-bar" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%;">
+            {{progress}}%
+        </div>
+    </div>
+</div>

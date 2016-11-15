@@ -1,0 +1,130 @@
+<h3 class="text-center">
+    Название категории:
+    {{result[0].cat_title}}
+</h3>
+
+<form role="form" ng-submit="makeChanges()">
+
+    <!--<button type="submit" class="btn btn-default">Submit</button>-->
+
+
+<h5 class="text-center">
+    <div class="form-group">
+        <label for="inputAbout">Oписание</label>
+        <input type="text" class="form-control" id="inputAbout" placeholder="{{result[0].cat_about}}" ng-model="about">
+    </div>
+</h5>
+
+
+
+
+
+
+
+
+
+<h3 class="text-center">Видео</h3>
+<div class="text-center" ng-repeat="video in result[0].cat_videos">
+    <youtube class="col-md-10 col-md-offset-2"></youtube>
+    <button style="margin-bottom: 150px" class="btn btn-danger btn-sm" type="button" ng-click="deleteVideoYoutube(video)">
+        Удалить видео с youtube
+    </button>
+</div>
+
+
+
+<div ng-show="gotchaVideoFile!='Видео удалено!'" class="text-center" ng-repeat="video in result[0].cat_videos_custom">
+    <custom-video class="col-md-10 col-md-offset-2"></custom-video>
+    <button style="margin-bottom: 150px" class="btn btn-danger btn-sm" type="button" ng-click="deleteVideoFile(video.title)">
+        Удалить видеофайл
+    </button>
+</div>
+
+
+    <div class="form-group col-sm-12" data-ng-repeat="videoLink in videoLinksInput">
+        <label for="inputVideoLink" class="col-sm-2 control-label">Ссылка на видео(youtube)</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputVideoLink" placeholder="{{videoLink.videoLink}}" ng-model="videoLink.videoLink">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-12 text-center">
+            <button type="button" ng-click="addVideoLink()" class="btn btn-success" id="inputAddVideoLink">Добавить ссылку на видео</button>
+        </div>
+    </div>
+
+
+    <div class="addfile col-sm-2 col-sm-offset-5 col-md-offset-5 col-lg-offset-5">
+        <button type="button" ng-click="newInput()" class="btn btn-success btn-sm">Добавить файл</button>
+    </div>
+    <div class="form-group" data-ng-repeat="oneFile in filesInput">
+        <input-file-area></input-file-area>
+        <input-category-file ng-show="fileType"></input-category-file>
+    </div>
+
+
+
+<h3 class="text-center clear-both">Документы</h3>
+    <div ng-show="gotchaDoc!='Документ удален!'" class="text-center" data-ng-repeat="doc in docs track by $index" >
+    <a ng-href="uploaded/{{doc}}" target="_blank">
+        <h5>{{doc}}</h5>
+    </a>
+    <button type="button" class="btn btn-sm btn-danger" ng-click="deleteDoc(doc)">
+        Удалить документ!
+    </button>
+</div>
+
+
+
+
+
+
+
+
+<h3 class="text-center">Области подвязанные на данную категорию!</h3>
+<div ng-show="gotchaArea!='Область удалена!'" class="text-center" data-ng-repeat="area in result[0].cat_areas">
+    <h4>
+        {{area.title}}
+    </h4>
+    <button type="button" class="btn btn-danger btn-sm" ng-click="deleteArea(area.title)">
+        Удалить данную область!
+    </button>
+</div>
+    <div class="form-group text-center" data-ng-repeat="area in areasInput">
+        <div class="col-sm-12">
+            <input ng-blur="blurArea(area.title)" type="text" class="form-control" id="inputArea" placeholder="{{area.title}}" ng-model="area.title">
+        </div>
+    </div>
+    <div class="form-group text-center addArea" ng-show="!fileType">
+        <div class="col-sm-12">
+            <button type="button" ng-click="addArea()" class="btn btn-success" id="inputAddArea">Добавить область</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3 class="text-center">Фотографии</h3>
+<div ng-show="gotchaPhoto!='Фото удалено!'" class="text-center" data-ng-repeat="photo in result[0].cat_photos track by $index">
+    <img class="catimgs" src="uploaded/mini_{{photo}}">
+    <button type="button" class="btn btn-danger btn-sm" ng-click="deletePhoto(photo)">Удалить фото</button>
+</div>
+
+
+
+    <div class="form-group text-center">
+        <div class="col-sm-12">
+            <button type="button" ng-click="makeChanges()" class="btn btn-success makechanges">Внести изменения!</button>
+        </div>
+    </div>
+</form>
+{{ready}}

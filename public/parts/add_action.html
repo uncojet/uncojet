@@ -1,0 +1,113 @@
+<h2 class="text-center">{{title}}</h2>
+<div class="addToActionsList">
+    <div class="text-center">
+        <label class="form-label">Видео инструкция пользованием данным разделом!</label>
+    </div>
+    <div class="text-center">
+        <video width="320" height="240" controls>
+            <source src="/img/manualActions.mp4">
+            Ваш браузер не поддерживает видео. Пожалуйста свяжитесь с вашим системным администратором, чтобы установить нужный плагин к браузеру.
+            На видео запись, мануал как пользоваться данным разделом.
+        </video>
+    </div>
+    <form class="form-horizontal" ng-submit="submit()" name="actionForm" role="form" enctype="multipart/form-data">
+        <div class="form-group text-center">
+            <label for="inputTitle" class="control-label">Название</label>
+            <input type="text" class="form-control" id="inputTitle" placeholder="title" ng-model="title" ng-model-options="{ updateOn: 'blur' }" required>
+        </div>
+        <div class="form-group text-center">
+            <label for="inputAbout" class="control-label">Описание</label>
+            <textarea class="form-control" id="inputAbout" placeholder="Описание" ng-model="about" required></textarea>
+        </div>
+
+        <div class="text-center">
+            <label class="control-label"><i class="fa fa-calendar"></i>Когда стартует акция </label>
+            <comment class="control-label">{{startingDate}}</comment>
+        </div>
+            <input class="form-control" ng-model="startingDate" ui-date="dateOptions" name="startingDate" required>
+
+        <div class="text-center">
+            <label class="control-label"><i class="fa fa-calendar"></i>Когда заканчивается акция </label>
+            <comment class="control-label">{{endingDate}}</comment>
+        </div>
+        <input class="form-control" ng-model="endingDate" ui-date="dateOptions" name="endingDate" required>
+
+        <div class="row clear-both text-center">
+            <h3>Степень загрузки файлов</h3>
+        </div>
+        <div class="row">
+            <div class="progress col-sm-6 col-sm-offset-3">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{progress.value}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress.value}}%;">
+                    {{progress.value}}%
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="button" ng-click="newInput()" class="btn btn-info btn-sm form-control">Добавить файл</button>
+        </div>
+
+        <div class="form-group clear-both" data-ng-repeat="oneFile in filesInput">
+            <div class="text-center" ng-class="{'has-error':actionForm.orderPic.$error.pattern}">
+                <label class="control-label"></i>Положение данной картинки по порядковому номеру:</label>
+                <input type="text" class="form-control" name="orderPic" ng-model="orderPic" ng-pattern="/^\d+$/">
+            </div>
+            <div ng-show="actionForm.orderPic.$valid">
+                <input-action-picture title="title" order="orderPic" progres="progress"></input-action-picture>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="text-center">
+            <button type="submit" class="form-control btn btn-primary">Submit</button>
+        </div>
+
+
+        <!--&lt;!&ndash;<div class="form-group">-->
+                <!--<input-area></input-area>-->
+        <!--</div>&ndash;&gt;-->
+        <!--<div class="col-sm-2 col-sm-offset-5 col-md-offset-5 col-lg-offset-5">-->
+            <!--<button type="button" ng-click="newInput()" class="btn btn-info btn-sm">Добавить файл</button>-->
+        <!--</div>-->
+        <!--<div class="form-group clear-both" data-ng-repeat="oneFile in filesInput">-->
+            <!--<input-file-area></input-file-area>-->
+            <!--<input-area></input-area>-->
+        <!--</div>-->
+
+
+        <!--<div class="sendDataButton text-center clear-both">-->
+            <!--<div class="btn btn-danger" ng-click="sendData()">Вставить данные</div>-->
+        <!--</div>-->
+    <!--</form>-->
+
+
+
+    <!--<div class="row inputFilter">-->
+        <!--<div class="container">-->
+            <!--<div class="text-center clear-both">-->
+                <!--Filter: <input ng-model="filterText">-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+
+
+        </form>
+    <div class="row">
+        <div class="allIncome">
+            <div class="thumbnails col-md-10 col-md-offset-1 col-sm-12">
+                <div class="col-sm-3 col-md-3" data-ng-repeat="income in actions">
+                    <div class="thumbnail">
+                        <img ng-show="income.pictures[0]" class="img-responsive img-thumbnail" src="uploaded/mini_{{income.pictures[0]}}">
+                            <div class="caption">
+                                <h3>{{income.title}}</h3>
+                                </a>
+                                <p><a class="btn btn-danger btn-sm clear-both" ng-click="deleteAction(income.title)">Удалить область</a></p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

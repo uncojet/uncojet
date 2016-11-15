@@ -1,0 +1,125 @@
+    <div class="container">
+{{totalInfo}}
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">{{result[0].equipment_title}}
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li class="active">item</li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+
+        <div class="text-center">
+            <h2>{{result[0].equipment_title}}</h2>
+        </div>
+
+
+        <!-- Portfolio Item Row -->
+        <div class="row">
+
+            <div class="col-md-8">
+                    <div id="carousel-item-equipment" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-item-equipment" data-slide-to="0" class="active"></li>
+                            <li data-ng-repeat="item in singlePhoto" data-target="#carousel-item-equipment" data-slide-to="{{singlePhoto.indexOf(item)+1}}"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img class="img-responsive img-thumbnail center" src="/uploaded/{{result[0].equipment_photo[0]}}" alt="">
+                            </div>
+                            <div class="item" data-ng-repeat="item in singlePhoto">
+                                <img class="img-responsive img-thumbnail center" src="/uploaded/{{item}}" alt="">
+                            </div>
+                        </div>
+
+                        <!-- Controls -->
+                        <button type="button" class="left carousel-control" href="#carousel-item-equipment" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </button>
+                        <button type="button" class="right carousel-control" href="#carousel-item-equipment" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </button>
+                    </div>
+            </div>
+
+            <div ng-show="width>992" class="col-md-4">
+                <h3>Документы</h3>
+                    <h5 class="col-md-10 col-md-offset-2" data-ng-repeat="doc in result[0].equipment_documents"><a target="_self" href="/uploaded/{{doc}}" download="{{doc}}">{{doc}}</a></h5>
+                <h3>Видео</h3>
+                    <!--<youtube-video id="good-vid" video-url="videos[0].videoLink"></youtube-video>-->
+               <youtube class="col-md-10 col-md-offset-2" ng-repeat="video in result[0].equipment_videos"></youtube>
+               <custom-video ng-repeat="video in result[0].equipment_videos_custom" class="col-md-10 col-md-offset-2"></custom-video>
+            </div>
+        </div>
+        <!-- /.row -->
+        <div ng-show="width<992" class="col-sm-12 text-center">
+            <h3 class="text-center">Документы</h3>
+                <h5 data-ng-repeat="doc in totalInfo[0].equipment_documents"><a target="_self" href="/uploaded/{{doc}}" download="{{doc}}">{{doc}}</a></h5>
+            <h3>Видео</h3>
+            <!--<youtube-video id="good-vid" video-url="videos[0].videoLink"></youtube-video>-->
+            <youtube class="col-sm-6" ng-repeat="video in videos"></youtube>
+            <custom-video ng-repeat="video in totalInfo[0].equipment_videos_custom" class="col-md-10 col-md-offset-2"></custom-video>
+        </div>
+
+
+        <div class="row">
+            <div class="container">
+                <h2 class="text-center">Описание:</h2>
+                <h5 class="text-center">{{result[0].equipment_about}}</h5>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="container">
+                <h2 class="text-center">Спецификация:</h2>
+                <table class="table table-hover">
+                    <tr data-ng-repeat="spec in result[0].equipment_spec">
+                        <td>{{spec.title}}</td>
+                        <td>{{spec.value}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="container">
+                <h2 class="text-center">Примеры установок:</h2>
+            </div>
+        </div>
+
+
+        <div id="carousel-areas" class="carousel slide" data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <active-photo-areas data-ng-repeat="photo in activePhotoAreas"></active-photo-areas>
+                </div>
+                <div class="item">
+                    <single-photo-areas data-ng-repeat="photo in singlePhotoAreas"></single-photo-areas>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <button type="button" class="left carousel-control" href="#carousel-areas" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </button>
+            <button type="button" class="right carousel-control" href="#carousel-areas" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </button>
+        </div>
+
+
+        <hr>
+
+    </div>

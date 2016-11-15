@@ -1,0 +1,68 @@
+<div class="adminPan text-center">
+    <h1>Упрощенная панель управления!</h1>
+
+    <!-- Button trigger modal
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Ввести данные администратора!
+    </button> -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Введите пароль для входа в админку!</h4>
+                </div>
+                <div class="modal-body">
+                    {{errorPass}}
+
+                    <form role="form" ng-submit="checkPass()">
+                        <div class="form-group">
+                            <label for="inputPassword">Пароль</label>
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Пароль" ng-model="pass">
+                        </div>
+                        <!--<button type="submit" class="btn btn-default">Submit</button>-->
+                    </form>
+
+
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" ng-click="closeAdmin()" data-dismiss="modal">Закрыть</button>
+                    <button type="button" ng-click="checkPass()" class="btn btn-primary">Войти</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="text-center">
+        <label class="form-label">Первым делом создайте отрасль(пищевая промышленность и т.д.)</label>
+    </div>
+    <a class="btn btn-success" ng-href="/areaAdmin">Перейти на страничку управления отраслями!</a>
+    <hr>
+    <div class="text-center">
+        <label class="form-label">После создания отрасли создайте категорию оборудования(мелкосимвольные, лазеры и т.д.)</label>
+    </div>
+    <a class="btn btn-success" ng-href="/categoryAdmin">Перейти на страничку управления категориями!</a>
+    <hr>
+    <div class="text-center">
+        <label class="form-label">А вот после создания отраслей и категорий можете переходить к управлению оборудованием!</label>
+    </div>
+    <a class="btn btn-success" ng-href="/equipmentAdmin">Перейти на страничку управления оборудованием!</a><br>
+    <hr>
+    <div class="text-center">
+        <label class="form-label">Категорию можете создавать когда хотите(в любой момент)</label>
+    </div>
+    <a class="btn btn-success" ng-href="/actionAdmin">Перейти на страничку управления акциями!</a>
+    <hr>
+
+
+    <div class="text-center">
+        <label class="form-label">Не забывайте выйти из панели управления, иначе кто - либо другой сможет внести изменения на сайт с вашего персонального компьютера!</label>
+    </div>
+    <a class="btn btn-danger" ng-click="exitAdmin()">Выйти из панели управления веб сайтом!</a>
+    <hr>
+</div>

@@ -1,0 +1,101 @@
+<div class="maintain_category">
+
+<form class="form-horizontal" role="form" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="inputCat" class="col-sm-2 control-label">Категории уже в наличии</label>
+        <div class="col-sm-10">
+            <select class="form-control" id="inputCat" ng-model="category">
+                <option data-ng-repeat="sell in info" ng-hide="sell._id=='null'" value="{{sell._id}}">{{sell._id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputBrief" class="col-sm-2 control-label">Brief</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" id="inputBrief" ng-model="brief" placeholder="{{brief}}"></textarea>
+        </div>
+    </div>
+    <div class="form-group checkForInput">
+        <label for="inputPhoto" class="col-sm-2 control-label">Фотография</label>
+        <div class="col-sm-10">
+            <input type="file" ng-file-select class="form-control" id="inputPhoto" multiple/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <a class="btn btn-danger ifOutOfFile" ng-click="postDataOutOfFile()">Записать данные без файла</a>
+        </div>
+    </div>
+</form>
+
+
+
+<div style="margin-bottom: 40px" class="container uploadingPic checkForInput">
+    <h2>Воспринимаемые форматы: jpg,png,jpeg,bmp,gif</h2>
+    <h3>Список очереди на загрузку</h3>
+    <p>Колличество файлов в задаче: {{ uploader.queue.length }}</p>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th width="50%">Название</th>
+            <th ng-show="uploader.isHTML5">Вес файла</th>
+            <th ng-show="uploader.isHTML5">Загружено процентов</th>
+            <th>Статус</th>
+            <th>Действия</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in uploader.queue">
+            <td>
+                <strong>{{ item.file.name }}</strong>
+                <div ng-show="uploader.isHTML5" ng-thumb="{ file: item.file, height: 100 }"></div>
+            </td>
+            <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+            <td ng-show="uploader.isHTML5">
+                <div class="progress" style="margin-bottom: 0;">
+                    <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                </div>
+            </td>
+            <td class="text-center">
+                <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+            </td>
+            <td nowrap>
+                <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                    <span class="glyphicon glyphicon-trash"></span> Удалить
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <p>
+            Степень загрузки файлов:
+        <div class="progress" style="">
+            <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+        </div>
+        </p>
+        <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+            <span class="glyphicon glyphicon-upload"></span> Загрузить данные
+        </button>
+        <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue();title='';about='';time=''" ng-disabled="!uploader.queue.length">
+            <span class="glyphicon glyphicon-trash"></span> Удалить все
+        </button>
+    </div>
+</div>
+
+
+<div data-ng-repeat="out in output" class="clearFloat">
+    <h3 class="col-sm-1 col-sm-offset-1">{{out.category_tytle}}</h3>
+        <a href="/uploaded/{{out.category_photo}}" data-lightbox="{{out.category_tytle}}">
+            <img src="/uploaded/mini_{{out.category_photo}}" class="col-sm-2 col-sm-offset-2 img-responsive">
+        </a>
+        <div>
+            <p>{{out.category_brief}}</p>
+        </div>
+</div>
+</div>
+

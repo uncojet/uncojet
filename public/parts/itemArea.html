@@ -1,0 +1,112 @@
+<div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-lg-12">
+            <ol class="breadcrumb">
+                <li><a href="index.html">Home</a>
+                </li>
+                <li class="active">item</li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+
+
+    <div class="text-center">
+        <h2>{{area}}</h2>
+    </div>
+
+
+
+    <!-- Portfolio Item Row -->
+    <div class="row">
+
+        <div class="col-md-8">
+            <div id="carousel-item-equipment" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-item-equipment" data-slide-to="0" class="active"></li>
+                    <li ng-show="areaInfo.area_photos.indexOf(item)!=areaInfo.area_photos.length-1" data-ng-repeat="item in areaInfo.area_photos" data-target="#carousel-item-equipment" data-slide-to="{{areaInfo[0].area_photos.indexOf(item)}}"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img class="img-responsive img-thumbnail center" src="/uploaded/{{activeAreaPhoto}}" alt="">
+                    </div>
+                    <div class="item" data-ng-repeat="item in singleAreaPhotos">
+                        <img class="img-responsive img-thumbnail center" src="/uploaded/{{item}}" alt="">
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <button type="button" class="left carousel-control" href="#carousel-item-equipment" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </button>
+                <button type="button" class="right carousel-control" href="#carousel-item-equipment" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </button>
+            </div>
+        </div>
+
+
+        <div ng-show="width>992" class="col-md-4">
+            <h3>Видео</h3>
+            <!--<youtube-video id="good-vid" video-url="videos[0].videoLink"></youtube-video>-->
+            <youtube class="col-md-10 col-md-offset-2" ng-repeat="video in videos"></youtube>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div ng-show="width<992" class="col-sm-12 text-center">
+        <h3>Видео</h3>
+        <!--<youtube-video id="good-vid" video-url="videos[0].videoLink"></youtube-video>-->
+        <youtube class="col-sm-6" ng-repeat="video in videos"></youtube>
+    </div>
+
+    <div class="row">
+        <div class="container text-center">
+            <h2 class="text-center">Описание:</h2>
+            <h5 class="text-center">{{areaInfo.area_about}}</h5>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="container">
+            <h2 class="text-center">Примеры подходящих утройств:</h2>
+        </div>
+    </div>
+
+
+    <div id="carousel-areas" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <!--<ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>-->
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <active-photo-equipments data-ng-repeat="photo in activePhotoEquipments"></active-photo-equipments>
+            </div>
+            <div class="item">
+                <single-photo-equipments data-ng-repeat="photo in singlePhotoEquipments"></single-photo-equipments>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <button type="button" class="left carousel-control" href="#carousel-areas" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </button>
+        <button type="button" class="right carousel-control" href="#carousel-areas" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </button>
+    </div>
+
+
+    <hr>
+
+</div>

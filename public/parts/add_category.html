@@ -1,0 +1,119 @@
+<div class="addToCategoryList">
+
+    <div class="text-center">
+        <label class="form-label">Видео инструкция пользованием данным разделом!</label>
+    </div>
+    <div class="text-center">
+        <video width="320" height="240" controls>
+            <source src="/img/manualCategories.mp4">
+            Ваш браузер не поддерживает видео. Пожалуйста свяжитесь с вашим системным администратором, чтобы установить нужный плагин к браузеру.
+            На видео запись, мануал как пользоваться данным разделом.
+        </video>
+    </div>
+
+<form class="form-horizontal" role="form" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="inputTitle" class="col-sm-2 control-label">Название - {{title}}</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputTitle" ng-model="title" ng-model-options="{ updateOn: 'blur' }">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputAbout" class="col-sm-2 control-label">Описание</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" id="inputAbout" placeholder="Описание" ng-model="about"></textarea>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="form-group" data-ng-repeat="area in areas">
+        <label for="inputArea" class="col-sm-2 control-label">Область применения - {{area.title}}</label>
+        <div class="col-sm-10">
+            <input ng-blur="blurArea(area.title)" type="text" class="form-control" id="inputArea" placeholder="{{area.title}}" ng-model="area.title" ng-model-options="{ updateOn: 'blur' }">
+        </div>
+    </div>
+    <div class="form-group" ng-show="!fileType">
+        <label for="inputAddArea" class="col-sm-2 control-label">Добавить область</label>
+        <div class="col-sm-10">
+            <button type="button" ng-click="addArea()" class="btn btn-info" id="inputAddArea">Добавить область</button>
+        </div>
+    </div>
+
+    <div class="form-group" data-ng-repeat="videoLink in videoLinks">
+        <label for="inputVideoLink" class="col-sm-2 control-label">Ссылка на видео(youtube)</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputVideoLink" placeholder="{{videoLink.videoLink}}" ng-model="videoLink.videoLink">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputAddVideoLink" class="col-sm-2 control-label">Добавить ссылку на видео</label>
+        <div class="col-sm-10">
+            <button type="button" ng-click="addVideoLink()" class="btn btn-info" id="inputAddVideoLink">Добавить ссылку на видео</button>
+        </div>
+    </div>
+
+
+
+
+    <div class="form-group">
+        <label for="inputOrder" class="col-sm-2 control-label">Порядковый номер</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputOrder" placeholder="{{order}}" ng-model="order">
+        </div>
+    </div>
+
+
+
+
+
+    <div class="col-sm-2 col-sm-offset-5 col-md-offset-5 col-lg-offset-5">
+        <button type="button" ng-click="newInput()" class="btn btn-info btn-sm">Добавить файл</button>
+    </div>
+    <div ng-show="addingFiles" class="form-group">
+        <input-file-area></input-file-area>
+        <input-category-file ng-show="fileType"></input-category-file>
+    </div>
+
+
+    <div class="sendDataButton text-center clear-both">
+        <div class="btn btn-info" ng-click="sendData()">Вставить данные</div>
+    </div>
+</form>
+
+
+    <div class="row inputFilter">
+        <div class="container">
+            <div class="text-center clear-both">
+                Filter: <input ng-model="filterText">
+            </div>
+        </div>
+    </div>
+
+
+
+
+<div class="row">
+    <div class="allIncome">
+        <div class="thumbnails col-md-10 col-md-offset-1 col-sm-12">
+            <div class="col-sm-3 col-md-3" data-ng-repeat="income in incomings | filter:filterText">
+                <div class="thumbnail">
+                    <img ng-show="income.photo[0]" class="img-responsive img-thumbnail" src="uploaded/mini_{{income.photo[0]}}">
+                    <div class="caption">
+                        <h3><a ng-href="/maintainCategory{{income.title}}">{{income.title}}</a></h3>
+                        <!--<p data-ng-repeat="area in income.areas">Области: {{area.title}}</p>-->
+                        <p><a class="btn btn-danger btn-sm clear-both" ng-click="deleteTotalCategory(income.title)">Удалить категорию</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
